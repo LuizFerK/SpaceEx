@@ -8,7 +8,7 @@ import Config
 config :spaceex, Spaceex.Repo,
   username: "postgres",
   password: "postgres",
-  database: "spaceex_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "postgres_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10

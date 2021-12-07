@@ -5,8 +5,12 @@ defmodule SpaceexWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", SpaceexWeb do
+  scope "/", SpaceexWeb do
     pipe_through :api
+
+    get "/", WelcomeController, :index
+
+    resources "/articles", ArticlesController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development
