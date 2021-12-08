@@ -4,21 +4,23 @@ defmodule Spaceex.Article do
 
   alias Spaceex.Articles.Event
 
-  @primary_key {:id, :binary_id, autogenerate: true}
+  @primary_key {:id, :integer, autogenerate: false}
 
   @params [
+    :id,
     :featured,
     :title,
     :url,
     :imageUrl,
     :newsSite,
     :summary,
+    :updatedAt,
     :publishedAt
   ]
 
   @required_params @params ++ [:launches, :events]
 
-  @derive {Jason.Encoder, only: [:id] ++ @required_params}
+  @derive {Jason.Encoder, only: @required_params}
 
   schema "articles" do
     field :featured, :boolean
@@ -27,6 +29,7 @@ defmodule Spaceex.Article do
     field :imageUrl, :string
     field :newsSite, :string
     field :summary, :string
+    field :updatedAt, :string
     field :publishedAt, :string
     embeds_many :launches, Event
     embeds_many :events, Event
@@ -40,5 +43,6 @@ defmodule Spaceex.Article do
     |> cast_embed(:launches)
     |> cast_embed(:events)
     |> validate_required(@required_params)
+    |> unique_constraint(:id, name: :articles_pkey)
   end
 end

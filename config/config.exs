@@ -10,10 +10,6 @@ import Config
 config :spaceex,
   ecto_repos: [Spaceex.Repo]
 
-config :spaceex, Spaceex.Repo,
-  migration_primary_key: [type: :binary_id],
-  migration_foreign_key: [type: :binary_id]
-
 # Configures the endpoint
 config :spaceex, SpaceexWeb.Endpoint,
   url: [host: "localhost"],
