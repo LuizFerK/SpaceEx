@@ -9,5 +9,5 @@ defmodule Spaceex do
   defdelegate delete_article(id), to: ArticleDelete, as: :call
   defdelegate get_article_by_id(id), to: ArticleGet, as: :by_id
   defdelegate update_article(params), to: ArticleUpdate, as: :call
-  defdelegate get_all_articles(), to: GetAllArticles, as: :call
+  defdelegate get_all_articles(params), to: GetAllArticles, as: :call
 end
