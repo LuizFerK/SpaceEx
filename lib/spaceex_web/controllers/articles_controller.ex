@@ -7,7 +7,7 @@ defmodule SpaceexWeb.ArticlesController do
   action_fallback FallbackController
 
   def index(conn, _params) do
-    with {:ok, [%Article{} | _] = articles} <- Spaceex.get_all_articles() do
+    with {:ok, articles} <- Spaceex.get_all_articles() do
       conn
       |> put_status(:ok)
       |> render("articles.json", articles: articles)

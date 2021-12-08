@@ -4,6 +4,7 @@ defmodule Spaceex.Articles.Create do
   def call(params) do
     params
     |> Article.changeset()
+    |> IO.inspect()
     |> Repo.insert()
     |> handle_insert()
   end

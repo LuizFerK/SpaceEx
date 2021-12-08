@@ -1,4 +1,4 @@
-defmodule Spaceex.FallbackController do
+defmodule SpaceexWeb.FallbackController do
   use SpaceexWeb, :controller
 
   alias Spaceex.Error
