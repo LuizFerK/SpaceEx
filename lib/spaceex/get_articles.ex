@@ -1,5 +1,5 @@
 defmodule Spaceex.GetArticles do
-  alias Spaceex.{Error, Repo}
+  alias Spaceex.{Article, Error, Repo}
   alias Spaceex.SpaceFlight.Client, as: SpaceFlight
 
   def call(limit) do
@@ -9,15 +9,20 @@ defmodule Spaceex.GetArticles do
     end
   end
 
-  def handle_response(articles) do
-    parsed_articles =
-      Enum.map(articles, fn article ->
-        article
-        |> Map.put(:inserted_at, NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second))
-        |> Map.put(:updated_at, NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second))
-      end)
+  defp handle_response(articles) do
+    Article
+    |> Repo.insert_all(parse_articles_maps(articles),
+      on_conflict: :replace_all,
+      conflict_target: :id
+    )
+  end
 
-    "articles"
-    |> Repo.insert_all(parsed_articles)
+  defp parse_articles_maps(articles) do
+    Enum.map(articles, fn article ->
+      article
+      |> Map.new(fn {k, v} -> {String.to_atom(k), v} end)
+      |> Map.put(:inserted_at, NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second))
+      |> Map.put(:updated_at, NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second))
+    end)
   end
 end
