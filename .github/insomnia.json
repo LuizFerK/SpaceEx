@@ -1,0 +1,240 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2021-12-10T12:43:04.391Z",
+  "__export_source": "insomnia.desktop.app:v2021.6.0",
+  "resources": [
+    {
+      "_id": "req_6d9c594fcc4c41f2931912c5b2cf5952",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1638921755475,
+      "created": 1638921751787,
+      "url": "{{ _.baseUrl }}",
+      "name": "Welcome",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1638921751787,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "parentId": null,
+      "modified": 1638921634802,
+      "created": 1638921634802,
+      "name": "SpaceEx",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_a88635802c0948ef85b432c6d6bafe9d",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1638930661386,
+      "created": 1638921741063,
+      "url": "{{ _.baseUrl }}/articles",
+      "name": "Index",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_4e48d49edf284bea93154c0e5800e35f",
+          "name": "page",
+          "value": "1",
+          "description": "",
+          "disabled": true
+        },
+        {
+          "id": "pair_d68adb37abda455fb256c2a64189db39",
+          "name": "page_size",
+          "value": "1",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1638921741063,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_aace2e6e9a8442e9907d1214e7ab328d",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1639105486245,
+      "created": 1639105468317,
+      "url": "{{ _.baseUrl }}/articles/13227",
+      "name": "Get",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1638921741038,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_97f4998ee81949d8a359c679913e0373",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1639105477746,
+      "created": 1638922041617,
+      "url": "{{ _.baseUrl }}/articles",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\t\"id\": 12223,\n    \"featured\": false,\n    \"title\": \"Test 01\",\n    \"url\": \"string\",\n    \"imageUrl\": \"string\",\n    \"newsSite\": \"string\",\n    \"summary\": \"string\",\n\t\t\"updatedAt\": \"string\",\n    \"publishedAt\": \"string\",\n    \"launches\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\"\n      }\n    ],\n    \"events\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\"\n      }\n    ]\n  }\n"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_4bd1d88062d74c9bb56aa95d9687ea36"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1638921741013,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_daa89b06d6a14902b2fdcac6ca7afd8e",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1639105636621,
+      "created": 1639105551855,
+      "url": "{{ _.baseUrl }}/articles/13240",
+      "name": "Update",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"featured\": true\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_442ade14ae48498289248e022f0d93d3"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1638921740988,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f98702060a8f4d0c9d844f8294d72039",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1639105393357,
+      "created": 1638922936512,
+      "url": "{{ _.baseUrl }}/articles/12223",
+      "name": "Delete",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1638921740963,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_3a026781a896f9c36d8b110e1b2b3e581fb83dc8",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1638921643465,
+      "created": 1638921634824,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": {},
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1638921634824,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_3a026781a896f9c36d8b110e1b2b3e581fb83dc8",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1638921634828,
+      "created": 1638921634828,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_dbd534cdd0114276a457f5a595e36511",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1638921634812,
+      "created": 1638921634812,
+      "fileName": "SpaceEx",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_770157e6a1a44180a5672debc0b95aaa",
+      "parentId": "env_3a026781a896f9c36d8b110e1b2b3e581fb83dc8",
+      "modified": 1638921674168,
+      "created": 1638921645017,
+      "name": "dev",
+      "data": {
+        "baseUrl": "http://localhost:4000"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "baseUrl"
+        ]
+      },
+      "color": "#9a18c9",
+      "isPrivate": false,
+      "metaSortKey": 1638921645017,
+      "_type": "environment"
+    }
+  ]
+}

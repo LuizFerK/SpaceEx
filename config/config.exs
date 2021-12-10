@@ -12,7 +12,7 @@ config :spaceex,
 
 config :spaceex, Spaceex.Scheduler,
   jobs: [
-    {"0 9 * * *", fn -> Spaceex.Articles.Insert.call(0) end}
+    {"0 9 * * *", {Spaceex.Articles.Insert, :call, [0]}}
   ]
 
 # Configures the endpoint
