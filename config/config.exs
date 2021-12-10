@@ -10,6 +10,11 @@ import Config
 config :spaceex,
   ecto_repos: [Spaceex.Repo]
 
+config :spaceex, Spaceex.Scheduler,
+  jobs: [
+    {"0 9 * * *", fn -> Spaceex.Articles.Insert.call(0) end}
+  ]
+
 # Configures the endpoint
 config :spaceex, SpaceexWeb.Endpoint,
   url: [host: "localhost"],

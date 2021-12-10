@@ -1,5 +1,6 @@
-defmodule Spaceex.GetArticles do
+defmodule Spaceex.Articles.Insert do
   alias Spaceex.{Article, Error, Repo}
+  alias Spaceex.Articles.Event
   alias Spaceex.SpaceFlight.Client, as: SpaceFlight
 
   def call(limit) do
@@ -23,6 +24,14 @@ defmodule Spaceex.GetArticles do
       |> Map.new(fn {k, v} -> {String.to_atom(k), v} end)
       |> Map.put(:inserted_at, NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second))
       |> Map.put(:updated_at, NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second))
+      |> Map.put(:launches, cast_embeddeds(article["launches"]))
+      |> Map.put(:events, cast_embeddeds(article["events"]))
+    end)
+  end
+
+  defp cast_embeddeds(embeddeds) do
+    Enum.map(embeddeds, fn embedded ->
+      %Event{id: embedded["id"], provider: embedded["provider"]}
     end)
   end
 end

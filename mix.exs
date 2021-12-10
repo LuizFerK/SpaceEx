@@ -45,7 +45,8 @@ defmodule Spaceex.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:scrivener_ecto, "~> 2.0"},
-      {:tesla, "~> 1.4.0"}
+      {:tesla, "~> 1.4.0"},
+      {:quantum, "~> 3.0"}
     ]
   end
 

@@ -15,9 +15,10 @@ defmodule Spaceex.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Spaceex.PubSub},
       # Start the Endpoint (http/https)
-      SpaceexWeb.Endpoint
+      SpaceexWeb.Endpoint,
       # Start a worker by calling: Spaceex.Worker.start_link(arg)
       # {Spaceex.Worker, arg}
+      Spaceex.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

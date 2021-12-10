@@ -8,7 +8,7 @@ defmodule Spaceex.Repo.Migrations.CreateArticlesTable do
       add :url, :string
       add :imageUrl, :string
       add :newsSite, :string
-      add :summary, :string
+      add :summary, :text
       add :updatedAt, :string
       add :publishedAt, :string
       add :launches, {:array, :map}, default: []
