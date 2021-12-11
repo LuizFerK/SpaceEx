@@ -10,7 +10,14 @@ defmodule Spaceex.MixProject do
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -44,6 +51,8 @@ defmodule Spaceex.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.10", only: :test, runtime: false},
+      {:ex_machina, "~> 2.7.0"},
       {:scrivener_ecto, "~> 2.0"},
       {:tesla, "~> 1.4.0"},
       {:quantum, "~> 3.0"}
