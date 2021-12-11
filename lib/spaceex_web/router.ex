@@ -25,7 +25,9 @@ defmodule SpaceexWeb.Router do
 
     scope "/" do
       pipe_through [:fetch_session, :protect_from_forgery]
+      # coveralls-ignore-start
       live_dashboard "/dashboard", metrics: SpaceexWeb.Telemetry
+      # coveralls-ignore-stop
     end
   end
 end
