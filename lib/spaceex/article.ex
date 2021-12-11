@@ -31,8 +31,8 @@ defmodule Spaceex.Article do
     field :summary, :string
     field :updatedAt, :string
     field :publishedAt, :string
-    embeds_many :launches, Event
-    embeds_many :events, Event
+    embeds_many :launches, Event, on_replace: :delete
+    embeds_many :events, Event, on_replace: :delete
 
     timestamps()
   end
