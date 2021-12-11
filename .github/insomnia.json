@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-12-10T12:43:04.391Z",
+  "__export_date": "2021-12-11T12:45:18.754Z",
   "__export_source": "insomnia.desktop.app:v2021.6.0",
   "resources": [
     {
@@ -101,7 +101,7 @@
     {
       "_id": "req_97f4998ee81949d8a359c679913e0373",
       "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
-      "modified": 1639105477746,
+      "modified": 1639226708609,
       "created": 1638922041617,
       "url": "{{ _.baseUrl }}/articles",
       "name": "Create",
@@ -109,7 +109,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\t\"id\": 12223,\n    \"featured\": false,\n    \"title\": \"Test 01\",\n    \"url\": \"string\",\n    \"imageUrl\": \"string\",\n    \"newsSite\": \"string\",\n    \"summary\": \"string\",\n\t\t\"updatedAt\": \"string\",\n    \"publishedAt\": \"string\",\n    \"launches\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\"\n      }\n    ],\n    \"events\": [\n      {\n        \"id\": \"string\",\n        \"provider\": \"string\"\n      }\n    ]\n  }\n"
+        "text": "{\n\t\"id\": 12223,\n\t\"featured\": false,\n\t\"title\": \"Test 01\",\n\t\"url\": \"string\",\n\t\"imageUrl\": \"string\",\n\t\"newsSite\": \"string\",\n\t\"summary\": \"string\",\n\t\"updatedAt\": \"string\",\n\t\"publishedAt\": \"string\",\n\t\"launches\": [\n\t\t{\n\t\t\t\"id\": \"string\",\n\t\t\t\"provider\": \"string\"\n\t\t}\n\t],\n\t\"events\": [\n\t\t{\n\t\t\t\"id\": \"string\",\n\t\t\t\"provider\": \"string\"\n\t\t}\n\t]\n}\n"
       },
       "parameters": [],
       "headers": [
@@ -165,7 +165,7 @@
     {
       "_id": "req_f98702060a8f4d0c9d844f8294d72039",
       "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
-      "modified": 1639105393357,
+      "modified": 1639163697399,
       "created": 1638922936512,
       "url": "{{ _.baseUrl }}/articles/12223",
       "name": "Delete",
@@ -188,7 +188,7 @@
     {
       "_id": "env_3a026781a896f9c36d8b110e1b2b3e581fb83dc8",
       "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
-      "modified": 1638921643465,
+      "modified": 1639163513131,
       "created": 1638921634824,
       "name": "Base Environment",
       "data": {},
@@ -220,7 +220,7 @@
     {
       "_id": "env_770157e6a1a44180a5672debc0b95aaa",
       "parentId": "env_3a026781a896f9c36d8b110e1b2b3e581fb83dc8",
-      "modified": 1638921674168,
+      "modified": 1639163527766,
       "created": 1638921645017,
       "name": "dev",
       "data": {
@@ -234,6 +234,25 @@
       "color": "#9a18c9",
       "isPrivate": false,
       "metaSortKey": 1638921645017,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_c508961344444563a6aeba9ba20960a1",
+      "parentId": "env_3a026781a896f9c36d8b110e1b2b3e581fb83dc8",
+      "modified": 1639163600624,
+      "created": 1639163515911,
+      "name": "prod",
+      "data": {
+        "baseUrl": "https://apispaceex.herokuapp.com/"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "baseUrl"
+        ]
+      },
+      "color": "#1bb625",
+      "isPrivate": false,
+      "metaSortKey": 1639163515911,
       "_type": "environment"
     }
   ]
