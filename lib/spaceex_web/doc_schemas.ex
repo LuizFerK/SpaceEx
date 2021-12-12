@@ -142,7 +142,7 @@ defmodule SpaceexWeb.DocSchemas do
 
   defmodule DocNoContent do
     OpenApiSpex.schema(%{
-      title: "No Content",
+      title: "NoContent",
       description: "No content response",
       type: :string,
       example: ""
