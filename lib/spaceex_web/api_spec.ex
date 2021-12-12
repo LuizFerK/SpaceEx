@@ -11,7 +11,7 @@ defmodule SpaceexWeb.ApiSpec do
         Server.from_endpoint(Endpoint)
       ],
       info: %Info{
-        title: to_string(Application.spec(:spaceex, :description)),
+        title: "SpaceEx",
         version: to_string(Application.spec(:spaceex, :vsn))
       },
       # Populate the paths from a phoenix router
