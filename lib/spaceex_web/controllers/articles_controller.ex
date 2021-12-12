@@ -1,10 +1,23 @@
 defmodule SpaceexWeb.ArticlesController do
   use SpaceexWeb, :controller
+  use OpenApiSpex.ControllerSpecs
 
   alias Spaceex.Article
+  alias SpaceexWeb.DocSchemas.Article, as: DocArticle
   alias SpaceexWeb.FallbackController
 
   action_fallback FallbackController
+
+  tags ["articles"]
+
+  operation :index,
+    summary: "List articles",
+    parameters: [
+      id: [in: :path, description: "User ID", type: :integer, example: 1001]
+    ],
+    responses: [
+      ok: {"Article response", "application/json", DocArticle}
+    ]
 
   def index(conn, params) do
     with {:ok, [%Article{} | _] = articles} <- Spaceex.get_all_articles(params) do

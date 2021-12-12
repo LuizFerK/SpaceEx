@@ -8,12 +8,22 @@ defmodule SpaceexWeb.Router do
     plug IDChecker
   end
 
+  pipeline :docs do
+    plug OpenApiSpex.Plug.PutApiSpec, module: SpaceexWeb.ApiSpec
+  end
+
   scope "/", SpaceexWeb do
     pipe_through :api
 
     get "/", WelcomeController, :index
-
     resources "/articles", ArticlesController, except: [:new, :edit]
+  end
+
+  scope "/" do
+    pipe_through :docs
+
+    get "/openapi", OpenApiSpex.Plug.RenderSpec, []
+    get "/docs", OpenApiSpex.Plug.SwaggerUI, path: "/openapi"
   end
 
   # Enables LiveDashboard only for development

@@ -55,6 +55,7 @@ defmodule Spaceex.MixProject do
       {:ex_machina, "~> 2.7.0", only: :test},
       {:bypass, "~> 2.1", only: :test},
       {:mox, "~> 1.0", only: :test},
+      {:open_api_spex, "~> 3.11"},
       {:scrivener_ecto, "~> 2.0"},
       {:tesla, "~> 1.4.0"},
       {:quantum, "~> 3.0"}
