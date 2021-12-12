@@ -78,16 +78,19 @@ In case you don't have an SSH key on your GitHub account, you can clone the proj
 2. Create a postgres database named ```spaceex```
 3. On the ```config/dev.exs``` and ```config/test.exs``` files, change your postgres **user** and **password**
 4. Run ```mix ecto.migrate``` to run the migrations to your database
-5. Run ```mix phx.server``` to start the server on port 4000
+5. Run ```mix openapi.spec.json --spec SpaceexWeb.ApiSpec``` to create the api docs (OpenAPI 3.0)
+6. Run ```mix phx.server``` to start the server on port 4000
 
 ### Production
 
 1. Run ```mix deps.get``` to install the dependencies
 2. Change de app url on ```config/prod.exs```
-3. Run ```export SECRET_KEY_BASE="$(mix phx.gen.secret)"``` to create a hashed secret key
-4. Run ```export DATABASE_URL="<your_database_url>"``` to get the database connection
-5. Run ```MIX_ENV=prod mix release``` to create the first release with Releases
-6. Run ```MIX_ENV=prod APP_NAME=spaceex PORT=4000 _build/prod/rel/spaceex/bin/spaceex start``` to start the production server
+3. Run ```mix openapi.spec.json --spec SpaceexWeb.ApiSpec``` on a SSL connection or remote-cli to create the api docs (OpenAPI 3.0) on the production environment
+4. Run migrations on your production database with ```mix ecto.migrate``` on a SSL connection or remote-cli
+5. Run ```export SECRET_KEY_BASE="$(mix phx.gen.secret)"``` to create a hashed secret key
+6. Run ```export DATABASE_URL="<your_database_url>"``` to get the database connection
+7. Run ```MIX_ENV=prod mix release``` to create the first release with Releases
+8. Run ```MIX_ENV=prod APP_NAME=spaceex PORT=4000 _build/prod/rel/spaceex/bin/spaceex start``` to start the production server
 
 # :triangular_flag_on_post: Endpoints
 
@@ -292,6 +295,12 @@ In case you don't have an SSH key on your GitHub account, you can clone the proj
 			}
 		]
 		```
+
+### Docs
+
+* :white_circle: Get - GET `http://localhost:4000/docs/json` Response - 200 OpenAPI 3.0 docs (JSON)
+
+* :black_circle: Get - GET `http://localhost:4000/docs` Response - 200 OpenAPI 3.0 docs (Swagger UI)
 
 # :fire: Techs
 

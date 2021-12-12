@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-12-11T12:45:18.754Z",
+  "__export_date": "2021-12-12T20:50:46.958Z",
   "__export_source": "insomnia.desktop.app:v2021.6.0",
   "resources": [
     {
@@ -40,7 +40,7 @@
     {
       "_id": "req_a88635802c0948ef85b432c6d6bafe9d",
       "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
-      "modified": 1638930661386,
+      "modified": 1639258192912,
       "created": 1638921741063,
       "url": "{{ _.baseUrl }}/articles",
       "name": "Index",
@@ -58,7 +58,7 @@
         {
           "id": "pair_d68adb37abda455fb256c2a64189db39",
           "name": "page_size",
-          "value": "1",
+          "value": "2",
           "description": "",
           "disabled": true
         }
@@ -78,9 +78,9 @@
     {
       "_id": "req_aace2e6e9a8442e9907d1214e7ab328d",
       "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
-      "modified": 1639105486245,
+      "modified": 1639277880831,
       "created": 1639105468317,
-      "url": "{{ _.baseUrl }}/articles/13227",
+      "url": "{{ _.baseUrl }}/articles/13239",
       "name": "Get",
       "description": "",
       "method": "GET",
@@ -101,7 +101,7 @@
     {
       "_id": "req_97f4998ee81949d8a359c679913e0373",
       "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
-      "modified": 1639226708609,
+      "modified": 1639272071909,
       "created": 1638922041617,
       "url": "{{ _.baseUrl }}/articles",
       "name": "Create",
@@ -176,6 +176,29 @@
       "headers": [],
       "authentication": {},
       "metaSortKey": -1638921740963,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0b96998d51bc481b93c38ca1dd41c6d3",
+      "parentId": "wrk_16f4d1885a70471b8dc09e8a704cce55",
+      "modified": 1639342084486,
+      "created": 1639280538488,
+      "url": "{{ _.baseUrl }}/docs/json",
+      "name": "Docs",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1638921740913,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
