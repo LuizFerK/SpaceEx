@@ -1,10 +1,9 @@
 defmodule Spaceex.Articles.Insert do
   alias Spaceex.{Article, Error, Repo}
   alias Spaceex.Articles.Event
-  alias Spaceex.SpaceFlight.Client, as: SpaceFlight
 
   def call(limit) do
-    case SpaceFlight.get_articles(limit) do
+    case client().get_articles(limit) do
       {:ok, articles} -> handle_response(articles)
       {:error, %Error{}} = error -> error
     end
@@ -33,5 +32,11 @@ defmodule Spaceex.Articles.Insert do
     Enum.map(embeddeds, fn embedded ->
       %Event{id: embedded["id"], provider: embedded["provider"]}
     end)
+  end
+
+  defp client do
+    :spaceex
+    |> Application.fetch_env!(__MODULE__)
+    |> Keyword.get(:space_flight_adapter)
   end
 end

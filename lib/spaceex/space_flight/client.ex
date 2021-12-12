@@ -11,7 +11,9 @@ defmodule Spaceex.SpaceFlight.Client do
   @base_url "https://api.spaceflightnewsapi.net/v3/"
   plug Tesla.Middleware.JSON
 
+  # coveralls-ignore-start
   def get_articles(base_url \\ @base_url, limit)
+  # coveralls-ignore-stop
 
   def get_articles(base_url, limit) when limit == 0 do
     "#{base_url}articles"
