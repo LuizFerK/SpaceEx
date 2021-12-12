@@ -3,20 +3,27 @@ defmodule SpaceexWeb.ArticlesController do
   use OpenApiSpex.ControllerSpecs
 
   alias Spaceex.Article
-  alias SpaceexWeb.DocSchemas.Article, as: DocArticle
+  alias SpaceexWeb.DocSchemas.{DocArticle, DocArticles, DocNoContent}
   alias SpaceexWeb.FallbackController
 
   action_fallback FallbackController
 
-  tags ["articles"]
+  tags ["Articles"]
 
   operation :index,
     summary: "List articles",
     parameters: [
-      id: [in: :path, description: "User ID", type: :integer, example: 1001]
+      page: [in: :path, description: "Page of list", type: :integer, example: 1, required: false],
+      page_size: [
+        in: :path,
+        description: "Limit of each page",
+        type: :integer,
+        example: 10,
+        required: false
+      ]
     ],
     responses: [
-      ok: {"Article response", "application/json", DocArticle}
+      ok: {"Articles list", "application/json", DocArticles}
     ]
 
   def index(conn, params) do
@@ -32,6 +39,15 @@ defmodule SpaceexWeb.ArticlesController do
     end
   end
 
+  operation :show,
+    summary: "Get article",
+    parameters: [
+      id: [in: :path, description: "Article ID", type: :integer, example: 13_236]
+    ],
+    responses: [
+      ok: {"Articles list", "application/json", DocArticle}
+    ]
+
   def show(conn, %{"id" => id}) do
     with {:ok, %Article{} = article} <- Spaceex.get_article_by_id(id) do
       conn
@@ -39,6 +55,13 @@ defmodule SpaceexWeb.ArticlesController do
       |> render("article.json", article: article)
     end
   end
+
+  operation :create,
+    summary: "Create article",
+    request_body: {"Article attributes", "application/json", DocArticle, required: true},
+    responses: [
+      ok: {"Created articles", "application/json", DocArticle}
+    ]
 
   def create(conn, params) do
     with {:ok, %Article{} = article} <- Spaceex.create_article(params) do
@@ -48,6 +71,16 @@ defmodule SpaceexWeb.ArticlesController do
     end
   end
 
+  operation :update,
+    summary: "Update article",
+    parameters: [
+      id: [in: :path, description: "Article ID", type: :integer, example: 13_236]
+    ],
+    request_body: {"Article attributes", "application/json", DocArticle},
+    responses: [
+      ok: {"Updated articles", "application/json", DocArticle}
+    ]
+
   def update(conn, params) do
     with {:ok, %Article{} = article} <- Spaceex.update_article(params) do
       conn
@@ -55,6 +88,15 @@ defmodule SpaceexWeb.ArticlesController do
       |> render("article.json", article: article)
     end
   end
+
+  operation :delete,
+    summary: "Delete article",
+    parameters: [
+      id: [in: :path, description: "Article ID", type: :integer, example: 13_236]
+    ],
+    responses: [
+      no_content: {"No content delete response", "application/json", DocNoContent}
+    ]
 
   def delete(conn, %{"id" => id}) do
     with {:ok, %Article{}} <- Spaceex.delete_article(id) do

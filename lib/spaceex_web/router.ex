@@ -22,8 +22,8 @@ defmodule SpaceexWeb.Router do
   scope "/" do
     pipe_through :docs
 
-    get "/openapi", OpenApiSpex.Plug.RenderSpec, []
-    get "/docs", OpenApiSpex.Plug.SwaggerUI, path: "/openapi"
+    get "/docs/json", OpenApiSpex.Plug.RenderSpec, []
+    get "/docs", OpenApiSpex.Plug.SwaggerUI, path: "/docs/json"
   end
 
   # Enables LiveDashboard only for development
