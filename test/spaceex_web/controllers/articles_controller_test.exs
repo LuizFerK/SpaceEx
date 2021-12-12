@@ -73,14 +73,14 @@ defmodule Spaceex.ArticlesControllerTest do
       assert response == %{"error" => "Article not found"}
     end
 
-    # test "when the id format is invalid, returns an error", %{conn: conn} do
-    #   response =
-    #     conn
-    #     |> delete(Routes.articles_path(conn, :delete, "invalid_id"))
-    #     |> json_response(:bad_request)
+    test "when the id format is invalid, returns an error", %{conn: conn} do
+      response =
+        conn
+        |> delete(Routes.articles_path(conn, :delete, "invalid_id"))
+        |> json_response(:bad_request)
 
-    #   assert response == %{"message" => "Invalid id format"}
-    # end
+      assert response == %{"message" => "Invalid id format"}
+    end
   end
 
   describe "index/2" do
@@ -146,14 +146,14 @@ defmodule Spaceex.ArticlesControllerTest do
       assert response == %{"error" => "Article not found"}
     end
 
-    # test "when the id format is invalid, returns an error", %{conn: conn} do
-    #   response =
-    #     conn
-    #     |> get(Routes.articles_path(conn, :show, "invalid_id"))
-    #     |> json_response(:bad_request)
+    test "when the id format is invalid, returns an error", %{conn: conn} do
+      response =
+        conn
+        |> get(Routes.articles_path(conn, :show, "invalid_id"))
+        |> json_response(:bad_request)
 
-    #   assert response == %{"message" => "Invalid id format"}
-    # end
+      assert response == %{"message" => "Invalid id format"}
+    end
   end
 
   describe "update/2" do
@@ -190,19 +190,19 @@ defmodule Spaceex.ArticlesControllerTest do
     test "when there is no article with the given id, returns an error", %{conn: conn} do
       response =
         conn
-        |> put(Routes.articles_path(conn, :update, 123))
+        |> put(Routes.articles_path(conn, :update, "123"))
         |> json_response(:not_found)
 
       assert response == %{"error" => "Article not found"}
     end
 
-    # test "when the id format is invalid, returns an error", %{conn: conn} do
-    #   response =
-    #     conn
-    #     |> put(Routes.articles_path(conn, :update, "invalid_id"))
-    #     |> json_response(:bad_request)
+    test "when the id format is invalid, returns an error", %{conn: conn} do
+      response =
+        conn
+        |> put(Routes.articles_path(conn, :update, "invalid_id"))
+        |> json_response(:bad_request)
 
-    #   assert response == %{"message" => "Invalid id format"}
-    # end
+      assert response == %{"message" => "Invalid id format"}
+    end
   end
 end
