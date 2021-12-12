@@ -1,8 +1,11 @@
 defmodule SpaceexWeb.Router do
   use SpaceexWeb, :router
 
+  alias SpaceexWeb.Plugs.IDChecker
+
   pipeline :api do
     plug :accepts, ["json"]
+    plug IDChecker
   end
 
   scope "/", SpaceexWeb do
