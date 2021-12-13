@@ -323,7 +323,7 @@ If you know the origin of the error and know how to resolve it, please, send me 
 
 # :book: License
 
-Released in 2020.
+Released in 2021.
 
 This project is under the [MIT license](https://github.com/LuizFerK/SpaceEx/blob/main/LICENSE).
 
