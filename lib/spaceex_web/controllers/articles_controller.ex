@@ -10,6 +10,7 @@ defmodule SpaceexWeb.ArticlesController do
 
   tags ["Articles"]
 
+  # coveralls-ignore-start
   operation :index,
     summary: "List articles",
     parameters: [
@@ -26,6 +27,8 @@ defmodule SpaceexWeb.ArticlesController do
       ok: {"Articles list", "application/json", DocArticles}
     ]
 
+  # coveralls-ignore-stop
+
   def index(conn, params) do
     with {:ok, [%Article{} | _] = articles} <- Spaceex.get_all_articles(params) do
       conn
@@ -39,6 +42,7 @@ defmodule SpaceexWeb.ArticlesController do
     end
   end
 
+  # coveralls-ignore-start
   operation :show,
     summary: "Get article",
     parameters: [
@@ -48,6 +52,8 @@ defmodule SpaceexWeb.ArticlesController do
       ok: {"Articles list", "application/json", DocArticle}
     ]
 
+  # coveralls-ignore-stop
+
   def show(conn, %{"id" => id}) do
     with {:ok, %Article{} = article} <- Spaceex.get_article_by_id(id) do
       conn
@@ -56,12 +62,15 @@ defmodule SpaceexWeb.ArticlesController do
     end
   end
 
+  # coveralls-ignore-start
   operation :create,
     summary: "Create article",
     request_body: {"Article attributes", "application/json", DocArticle, required: true},
     responses: [
       ok: {"Created articles", "application/json", DocArticle}
     ]
+
+  # coveralls-ignore-stop
 
   def create(conn, params) do
     with {:ok, %Article{} = article} <- Spaceex.create_article(params) do
@@ -71,6 +80,7 @@ defmodule SpaceexWeb.ArticlesController do
     end
   end
 
+  # coveralls-ignore-start
   operation :update,
     summary: "Update article",
     parameters: [
@@ -81,6 +91,8 @@ defmodule SpaceexWeb.ArticlesController do
       ok: {"Updated articles", "application/json", DocArticle}
     ]
 
+  # coveralls-ignore-stop
+
   def update(conn, params) do
     with {:ok, %Article{} = article} <- Spaceex.update_article(params) do
       conn
@@ -89,6 +101,7 @@ defmodule SpaceexWeb.ArticlesController do
     end
   end
 
+  # coveralls-ignore-start
   operation :delete,
     summary: "Delete article",
     parameters: [
@@ -97,6 +110,8 @@ defmodule SpaceexWeb.ArticlesController do
     responses: [
       no_content: {"No content delete response", "application/json", DocNoContent}
     ]
+
+  # coveralls-ignore-stop
 
   def delete(conn, %{"id" => id}) do
     with {:ok, %Article{}} <- Spaceex.delete_article(id) do

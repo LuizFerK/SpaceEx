@@ -8,9 +8,12 @@ defmodule SpaceexWeb.Router do
     plug IDChecker
   end
 
+  # coveralls-ignore-start
   pipeline :docs do
     plug OpenApiSpex.Plug.PutApiSpec, module: SpaceexWeb.ApiSpec
   end
+
+  # coveralls-ignore-stop
 
   scope "/", SpaceexWeb do
     pipe_through :api
@@ -19,12 +22,15 @@ defmodule SpaceexWeb.Router do
     resources "/articles", ArticlesController, except: [:new, :edit]
   end
 
+  # coveralls-ignore-start
   scope "/" do
     pipe_through :docs
 
     get "/docs/json", OpenApiSpex.Plug.RenderSpec, []
     get "/docs", OpenApiSpex.Plug.SwaggerUI, path: "/docs/json"
   end
+
+  # coveralls-ignore-stop
 
   # Enables LiveDashboard only for development
   #

@@ -4,6 +4,7 @@ defmodule SpaceexWeb.WelcomeController do
 
   alias SpaceexWeb.DocSchemas.DocWelcome
 
+  # coveralls-ignore-start
   tags ["Welcome"]
 
   operation :index,
@@ -11,6 +12,8 @@ defmodule SpaceexWeb.WelcomeController do
     responses: [
       ok: {"Welcome response", "application/json", DocWelcome}
     ]
+
+  # coveralls-ignore-stop
 
   def index(conn, _params) do
     conn

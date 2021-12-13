@@ -312,6 +312,8 @@ In case you don't have an SSH key on your GitHub account, you can clone the proj
 - Tesla (http client to external apis)
 - Scrivener Ecto (database pagination)
 - Credo (linting)
+- Open API Spec (Docs)
+- Mox, Bypass, Ex Machina and Excoveralls (tests)
 
 # :bug: Issues
 
@@ -326,6 +328,8 @@ Released in 2020.
 This project is under the [MIT license](https://github.com/LuizFerK/SpaceEx/blob/main/LICENSE).
 
 > This is a challenge by [Coodesh](https://coodesh.com/)
+
+> Presentation link on Loom: https://www.loom.com/share/728db4617a9f41a7bd792c888e7ddf05
 
 <p align="center">
 	< keep coding /> :rocket: :heart:
