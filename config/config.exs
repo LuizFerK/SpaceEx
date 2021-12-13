@@ -15,7 +15,7 @@ config :spaceex, Spaceex.Scheduler,
     {"0 9 * * *", {Spaceex.Articles.Insert, :call, [0]}}
   ]
 
-config :spaceex, Spaceex.Articles.Insert, space_flight_adapter: Spaceex.Articles.Client
+config :spaceex, Spaceex.Articles.Insert, space_flight_adapter: Spaceex.SpaceFlight.Client
 
 # Configures the endpoint
 config :spaceex, SpaceexWeb.Endpoint,
